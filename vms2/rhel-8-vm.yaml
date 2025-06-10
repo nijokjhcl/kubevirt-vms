@@ -40,7 +40,6 @@ spec:
             name: rhel-8-silver-hedgehog-67-volume-2
           name: rootdisk
         - dataVolume:
-            hotpluggable: true
             name: dv-vm-demo-1-crimson-anaconda-92
           name: disk-scarlet-boar-22
         - cloudInitNoCloud:
