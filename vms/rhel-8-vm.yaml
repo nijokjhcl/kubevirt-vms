@@ -44,9 +44,6 @@ spec:
         machine:
           type: pc-q35-rhel9.4.0
         resources: {}
-      networks:
-        - name: default
-          pod: {}
       subdomain: headless
       volumes:
         - dataVolume:
