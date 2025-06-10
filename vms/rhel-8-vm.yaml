@@ -18,12 +18,6 @@ spec:
           resources:
             requests:
               storage: 30Gi
-  instancetype:
-    kind: virtualmachineclusterinstancetype
-    name: u1.small
-  preference:
-    kind: virtualmachineclusterpreference
-    name: rhel.8
   runStrategy: Always
   template:
     metadata:
