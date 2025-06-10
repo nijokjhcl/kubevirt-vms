@@ -18,6 +18,15 @@ spec:
           resources:
             requests:
               storage: 30Gi
+    - metadata:
+        name: dv-vm-demo-1-crimson-anaconda-92
+      spec:
+        source:
+          blank: {}
+        storage:
+          resources:
+            requests:
+              storage: 10Gi 
   runStrategy: Always
   template:
     metadata:
