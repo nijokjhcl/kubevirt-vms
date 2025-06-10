@@ -30,13 +30,6 @@ spec:
       labels:
         network.kubevirt.io/headlessService: headless
     spec:
-      accessCredentials:
-        - sshPublicKey:
-            propagationMethod:
-              noCloud: {}
-            source:
-              secret:
-                secretName: ssh-bastion
       architecture: amd64
       domain:
         devices:
@@ -58,4 +51,3 @@ spec:
               user: rhel
               runcmd: []
           name: cloudinitdisk
-
