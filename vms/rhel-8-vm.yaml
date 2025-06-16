@@ -32,9 +32,6 @@ spec:
             - name: rootdisk
               disk:
                 bus: virtio
-            - name: disk-scarlet-boar-21
-              disk:
-                bus: virtio
             - name: cloudinitdisk
               disk:
                 bus: virtio
