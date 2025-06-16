@@ -43,7 +43,7 @@ spec:
                 bus: virtio
             - name: disk-scarlet-boar-21
               disk:
-                bus: scsi  # <--- Set SCSI here
+                bus: virtio
             - name: cloudinitdisk
               disk:
                 bus: virtio
