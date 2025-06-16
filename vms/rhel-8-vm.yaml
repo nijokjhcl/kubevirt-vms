@@ -30,7 +30,9 @@ spec:
           autoattachPodInterface: true
         machine:
           type: pc-q35-rhel9.4.0
-        resources: {}
+        resources: 
+          requests:
+            memory: 2Gi
       subdomain: headless
       volumes:
         - dataVolume:
