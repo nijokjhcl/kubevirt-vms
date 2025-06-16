@@ -37,6 +37,16 @@ spec:
       domain:
         devices:
           autoattachPodInterface: true
+          disks:
+            - name: rootdisk
+              disk:
+                bus: virtio
+            - name: disk-scarlet-boar-21
+              disk:
+                bus: scsi  # <--- Set SCSI here
+            - name: cloudinitdisk
+              disk:
+                bus: virtio
         machine:
           type: pc-q35-rhel9.4.0
         resources: 
