@@ -17,16 +17,7 @@ spec:
         storage:
           resources:
             requests:
-              storage: 30Gi
-    - metadata:
-        name: dv-vm-demo-1-crimson-anaconda-90
-      spec:
-        source:
-          blank: {}
-        storage:
-          resources:
-            requests:
-              storage: 10Gi           
+              storage: 30Gi          
   runStrategy: Always
   template:
     metadata:
@@ -39,9 +30,6 @@ spec:
           autoattachPodInterface: true
           disks:
             - name: rootdisk
-              disk:
-                bus: virtio
-            - name: disk-scarlet-boar-21
               disk:
                 bus: virtio
             - name: cloudinitdisk
@@ -57,9 +45,6 @@ spec:
         - dataVolume:
             name: rhel-8-silver-hedgehog-67-volume-1
           name: rootdisk
-        - dataVolume:
-            name: dv-vm-demo-1-crimson-anaconda-90
-          name: disk-scarlet-boar-21
         - cloudInitNoCloud:
             userData: |
               #cloud-config
