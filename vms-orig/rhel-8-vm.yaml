@@ -1,0 +1,71 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: vm-demo-1
+  namespace: vm-demo
+  labels:
+    app: db
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: rhel-8-silver-hedgehog-67-volume-1
+      spec:
+        sourceRef:
+          kind: DataSource
+          name: rhel8
+          namespace: openshift-virtualization-os-images
+        storage:
+          resources:
+            requests:
+              storage: 30Gi
+    - metadata:
+        name: dv-vm-demo-1-crimson-anaconda-90
+      spec:
+        source:
+          blank: {}
+        storage:
+          resources:
+            requests:
+              storage: 10Gi           
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        network.kubevirt.io/headlessService: headless
+    spec:
+      architecture: amd64
+      domain:
+        devices:
+          autoattachPodInterface: true
+          disks:
+            - name: rootdisk
+              disk:
+                bus: virtio
+            - name: disk-scarlet-boar-21
+              disk:
+                bus: virtio
+            - name: cloudinitdisk
+              disk:
+                bus: virtio
+        machine:
+          type: pc-q35-rhel9.4.0
+        resources: 
+          requests:
+            memory: 2Gi
+      subdomain: headless
+      volumes:
+        - dataVolume:
+            name: rhel-8-silver-hedgehog-67-volume-1
+          name: rootdisk
+        - dataVolume:
+            name: dv-vm-demo-1-crimson-anaconda-90
+          name: disk-scarlet-boar-21
+        - cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              chpasswd:
+                expire: false
+              password: 1qof-t2mc-kf23
+              user: rhel
+              runcmd: []
+          name: cloudinitdisk
